@@ -370,7 +370,10 @@ font-weight: 500;
         margin-right: auto;
         background-color: rgb( 18,18,18 );
       }
-    
+      .search-container{
+        display: flex;
+        flex-direction: row;
+    }    
   }
 
 
