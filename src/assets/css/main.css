@@ -376,7 +376,10 @@ font-weight: 500;
 
   @media screen and (max-width: 400px) {
     /* Your CSS rules go here. These will apply to screens that are 400px wide or less. */
-
+.search-container{
+    display: flex;
+    flex-direction: row;
+}
 
     .grid-container {
         display: grid;
