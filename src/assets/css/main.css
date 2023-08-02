@@ -1,0 +1,391 @@
+
+body
+{
+    background-color: rgb( 18,18,18 );
+}
+.container
+{
+    background: rgb( 18,18,18 );
+    margin-top: auto;
+    margin-bottom: auto;
+    /* padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.06);
+    width: 800px;
+    transition: all 0.3s ease; */
+    /* height: 100%; */
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates a 3-column grid */
+    gap: 30px; /* Adds a gap between grid items */
+    /* padding: 10px 10px; */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb( 18,18,18 );
+  }
+  
+  .grid-item {
+    background-color: #f3ecec;
+    padding: 25px;
+    height: 220px;
+    width: 220px;
+    text-align: center;
+    border-radius: 10px;
+    color: #000001 !important;
+    
+  }
+  a
+  {
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+
+
+  .search-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  #search-input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #search-btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: #6C757D;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #likedMovies
+  {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    background-color: #093768;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .likedButton
+  {
+    position: relative;
+    top: 0;
+    left: -50px;
+    height: 50px;
+    width: 50px;
+  }
+  #search-btn:hover {
+    background-color: #5A6268;
+  }
+  
+
+  /* .pagination-btn {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  
+  .pagination-btn.active {
+    background-color: #aaddaa;
+  }
+  
+  .pagination-btn.disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+  }
+
+  #pagination-container
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  } */
+  .grid-item-img
+  {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .titleDiv
+  {
+    font-size: 15px;
+    padding-bottom: 4px;
+    font-weight: 500;
+  }
+.item-desc
+{
+  font-size: 15px;
+  /* gap: 2px; */
+display: flex;
+flex-direction: row;
+justify-content: end;
+margin-top: 5px;
+gap: 5px;
+margin-bottom: 1%;
+font-weight: 500;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  .grid-item:hover
+  {
+   cursor: pointer;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    color: black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-item-img
+  {
+    height: 60%;
+    width:40%
+  }
+
+  .movieImage
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+    /* gap: 2px; */
+    /* width: 100%; */
+    padding: 5px;
+    margin-top: 10px;
+  }
+  .movieDetailsContainer
+  {
+      background: #000001;
+      margin-top: auto;
+      margin-bottom: auto;
+      /* padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.06);
+      width: 800px;
+      transition: all 0.3s ease; */
+      /* height: 100%; */
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      position:absolute;
+      top: 0;
+      left: 0;
+  }
+  .movieDesc
+  {
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    color: #ccc;
+    padding: 5px;
+  }
+  .movieDetailTitle
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 42px;
+    color: #ccc;
+    padding: 5px;
+    font-weight: 700;
+  }
+  .movieRelatedDetails
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 32px;
+    color: #ccc;
+    padding: 5px;
+
+  }
+   /* .page-item.active .page-link{
+	background-color:#000 !important;
+	color: #fff !important;	
+	border: none;
+    background-color:  #6d2323 ;
+
+}
+/* .pagination
+{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    gap: 4px;
+    
+}
+.pagination .page-link 
+{
+	color: #c2b9b9;
+} */ 
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: #ffffff;
+    gap: 9px;
+  }
+  
+  .pagination__link {
+    margin: 0 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    transition: all 0.3s;
+    background-color: #4c4c56 !important;
+  }
+  
+  .pagination__link:hover {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .pagination__link--disabled {
+    color: #666666;
+    cursor: not-allowed;
+  }
+  
+  .pagination__link--active {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  .pagination li {
+    list-style: none;
+  }
+/* .justify-content-center
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} */
+
+.likedSectionTitle
+{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   color: #fff;
+}
+.editModalDiv
+{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   padding: 10px;
+}
+.editModalDivTitle
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 32px;
+}
+.movieDetailEditBtn
+{
+    height: 50px;
+    width: 100px;
+    background-color: #101835;
+    color: #ccc;
+}
+.movieDetailEditBtnDiv
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.movieDetailEditBtnDiv :hover{
+    cursor: pointer;
+}
+@media screen and (max-width: 1100px) 
+{
+    /* Your CSS rules go here. These will apply to screens that are 400px wide or less. */
+
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
+        gap: 5px; /* Adds a gap between grid items */
+        /* padding: 10px 10px; */
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb( 18,18,18 );
+      }
+    
+  }
+
+
+  @media screen and (max-width: 400px) {
+    /* Your CSS rules go here. These will apply to screens that are 400px wide or less. */
+
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Creates a 3-column grid */
+        gap: 5px; /* Adds a gap between grid items */
+        /* padding: 10px 10px; */
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb( 18,18,18 );
+      }
+    
+  }
