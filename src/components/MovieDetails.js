@@ -6,6 +6,7 @@ import { faStar as faSolidStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as faEmptyStar } from '@fortawesome/free-regular-svg-icons'
 import Modal from 'react-modal';
 import MyModal from './EditModal';
+import ConfirmationModal from './ConfirmModal';
 
 const MovieDetails = () => {
     const params=useParams();
@@ -14,8 +15,8 @@ const MovieDetails = () => {
     const [likedList,setLikedList]=useState([]);
     const [likedExist,setLikedExist]=useState(false);
     const [modalOpen, setModalOpen] = useState(false);
- 
-
+    const [editableDetails,setEditableDetails]=useState();
+    const [confirmModalOpen,setConfirmModalOpen]=useState(false);
     
  const getMoviesDetails=async()=>{
 
@@ -60,9 +61,11 @@ setLikedList(arrayFromStorage);
 console.log(details,'dtt',likedList);
  setIsLiked(likedList.some(item => item?.imdbID == params.id));
         setLikedExist(likedList.some(item => item?.imdbID == params.id));
-       
-
-    },[details,likedList])
+      
+       let [singleObj]=likedList.filter((list)=>list.imdbID==params.id)
+       setEditableDetails(singleObj);
+console.log(editableDetails,'hiii');
+    },[details,likedList]);
     const handleLike = () => {
         let like=isLiked;
         setIsLiked(!isLiked);
@@ -85,15 +88,56 @@ console.log(details,'dtt',likedList);
       };
   return (
     <>
-    <MyModal 
+    {modalOpen&&<MyModal 
         isOpen={modalOpen} 
         closeModal={() => setModalOpen(false)} 
         likedList={likedList}
-        details={details} 
-        setDetails={setDetails}
+        details={editableDetails} 
+        setDetails={setEditableDetails}
         setLikedList={setLikedList}
         // onEdit={handleEdit}
-      />
+      />}
+      {confirmModalOpen&&<ConfirmationModal
+      modalIsOpen={confirmModalOpen} 
+      setModalIsOpen={setConfirmModalOpen} 
+      handleLike={handleLike}
+      />}
+      {
+        isLiked?
+        <div className='movieDetailsContainer'>
+    <div className='movieDetailTitle'>
+        <p>{editableDetails?.Title}</p>
+    </div>
+   <div className='movieImage'>
+       <img src={`${editableDetails?.Poster}`}/>
+       <button onClick={()=>{isLiked==false?handleLike():setConfirmModalOpen(true);}} className='likedButton'>
+      <FontAwesomeIcon icon={isLiked ? faSolidStar : faEmptyStar} color="orange" size="2x" />
+    </button>
+   </div>
+
+  <div className='movieDetailEditBtnDiv'>
+  <button className='movieDetailEditBtn' onClick={()=>{if(isLiked){setModalOpen(true);}else{alert('Please like the movie first then you can edit it')}}}>Edit {editableDetails?.Type}</button>
+  
+    </div> 
+   <div className='movieDesc'>
+    <p >     Plot:</p>
+   <p>{editableDetails?.Plot}</p>
+   </div>
+   <div className='movieRelatedDetails'>
+    <div>
+    <p > Type:</p>
+   <p>{editableDetails?.Type}</p>
+    </div>
+   <div>
+   <p>Year</p>
+   <p>{editableDetails?.Year}</p></div>
+   <div>
+   <p>Rated</p>
+   <p>{editableDetails?.Rated}</p>
+   </div>
+   </div>
+</div>
+:
 <div className='movieDetailsContainer'>
     <div className='movieDetailTitle'>
         <p>{details?.Title}</p>
@@ -127,6 +171,8 @@ console.log(details,'dtt',likedList);
    </div>
    </div>
 </div>
+      }
+
     </>
   )
 }

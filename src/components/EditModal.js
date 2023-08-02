@@ -60,10 +60,10 @@ function MyModal({ isOpen, closeModal,
       };
       function handleEditMovie()
       {
-        setNewList(likedList?.filter((list)=>list?.imdbID!=details?.imdbID));
-        
-        localStorage.setItem('likedList',JSON.stringify([...newList,details]));
-        setLikedList([...newList,details]);
+        // setNewList();
+        let ii=likedList?.filter((list)=>list?.imdbID!=details?.imdbID);
+        localStorage.setItem('likedList',JSON.stringify([...ii,details]));
+        setLikedList([...ii,details]);
 
       }
     //   useEffect(() => {
