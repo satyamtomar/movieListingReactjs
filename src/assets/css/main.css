@@ -363,8 +363,8 @@ font-weight: 500;
 
     .grid-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Creates a 3-column grid */
-        gap: 5px; /* Adds a gap between grid items */
+        grid-template-columns: repeat(3, 1fr) ; /* Creates a 3-column grid */
+        gap: 2px; /* Adds a gap between grid items */
         /* padding: 10px 10px; */
         margin-left: auto;
         margin-right: auto;
@@ -384,7 +384,7 @@ font-weight: 500;
     .grid-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Creates a 3-column grid */
-        gap: 5px; /* Adds a gap between grid items */
+        gap: 2px; /* Adds a gap between grid items */
         /* padding: 10px 10px; */
         margin-left: auto;
         margin-right: auto;
